@@ -127,7 +127,7 @@ async def web_app_data_handler(message: Message):
                 "<b>✨ Yangi buyurtma!</b>\n",
                 f"<b>🆔 Buyurtma ID:</b> <code>{order_id}</code>",
                 f"<b>👤 Mijoz:</b> {default_first_name} {default_last_name}",
-                f"<b>🆔 User ID:</b> <code>{user_info.get('id')}</code>",
+                f"<b>🆔 Foydalanuvchi ID:</b> <code>{user_info.get('id')}</code>",
                 f"<b>✳️ Username:</b> {default_username}\n"
             ]
             
@@ -219,7 +219,7 @@ async def profile_handler(callback: types.CallbackQuery):
             
             profile_text = "<b>👤 Mening profilim</b>\n\n"
             profile_text += f"👤 <b>Ism:</b> {user_data.get('first_name', 'N/A')} {user_data.get('last_name', '')}\n"
-            profile_text += f"🆔 <b>User ID:</b> <code>{user_id}</code>\n"
+            profile_text += f"🆔 <b>Foydalanuvchi ID:</b> <code>{user_id}</code>\n"
             
             if user_data.get('username'):
                 profile_text += f"✳️ <b>Username:</b> @{user_data.get('username')}\n"
@@ -320,10 +320,10 @@ async def contact_user(user_id: str, callback: types.CallbackQuery):
             user_data = user_doc.to_dict()
             contact_info = (
                 f"👤 <b>Mijoz ma'lumotlari:</b>\n\n"
-                f"📝 Ism: {user_data.get('first_name', 'Noma\'lum')} {user_data.get('last_name', '')}\n"
-                f"🆔 User ID: <code>{user_id}</code>\n"
+                f"📝 Ism: {user_data.get('first_name', "Noma'lum")} {user_data.get('last_name', '')}\n"
+                f"🆔 Foydalanuvchi ID: <code>{user_id}</code>\n"
                 f"✳️ Username: @{user_data.get('username', 'Mavjud emas')}\n"
-                f"📞 Chat ID: <code>{user_data.get('chat_id', 'Noma\'lum')}</code>"
+                f"📞 Chat ID: <code>{user_data.get('chat_id', "Noma'lum")}</code>"
             )
             await callback.message.answer(contact_info)
         else:
