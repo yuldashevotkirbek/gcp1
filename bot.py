@@ -319,11 +319,11 @@ async def contact_user(user_id: str, callback: types.CallbackQuery):
         if user_doc.exists:
             user_data = user_doc.to_dict()
             contact_info = (
-                f'👤 <b>Mijoz ma\'lumotlari:</b>\n\n'
-                f'📝 Ism: {user_data.get("first_name", "Noma'lum")} {user_data.get("last_name", "")}\n'
-                f'🆔 Foydalanuvchi ID: <code>{user_id}</code>\n'
-                f'✳️ Username: @{user_data.get("username", "Mavjud emas")}\n'
-                f'📞 Chat ID: <code>{user_data.get("chat_id", "Noma'lum")}</code>'
+                f"👤 <b>Mijoz ma'lumotlari:</b>\n\n"
+                f"📝 Ism: {user_data.get('first_name', 'Noma\'lum')} {user_data.get('last_name', '')}\n"
+                f"🆔 Foydalanuvchi ID: <code>{user_id}</code>\n"
+                f"✳️ Username: @{user_data.get('username', 'Mavjud emas')}\n"
+                f"📞 Chat ID: <code>{user_data.get('chat_id', 'Noma\'lum')}</code>"
             )
             await callback.message.answer(contact_info)
         else:
